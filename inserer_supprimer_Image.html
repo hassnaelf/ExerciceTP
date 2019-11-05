@@ -1,0 +1,76 @@
+<html>
+    <head>
+    <meta http-equiv=Content-Type content="text/html; charset=utf-8" /> 
+    <link href="./css/menu.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="css/script.js"></script>
+    </head>
+
+	<body>
+	<form name = "formulaire">
+	    <h3> Modification de page</h3>
+
+	    <table>
+		<tr>
+		    <td>Titre à remplacer :</td>
+		</tr>
+		<tr>
+		    <td colspan="2"><input type="text" id="champ_remplace" />
+		    <input type="button" name="bouton" value = "Remplacer" onclick ="remplace()"/></td>
+		</tr>
+		<tr> </tr><tr> </tr><tr> </tr>
+		<tr>
+		    <td> <input type="button" name="Inverser les paragraphes" value = "Inverser les paragraphes" onclick="inverse()"/></td>
+		</tr>
+
+		<tr> </tr><tr> </tr><tr> </tr>
+
+		<tr>
+		    <td>Insérer une image :</td>
+		</tr>
+
+		<tr>
+		    <td colspan="2"> <input type="file" id="Parcourir" value = "Parcourir..."/></td>
+		</tr>
+
+		<tr>
+		    <td colspan="2"> <input type="button" name="Inserer" value = "Insérer" onclick="insere()"/> <input type="button" name="Supprimer" value = "Supprimer" onclick="supprime()"/></td>
+		</tr>
+
+	</form>
+	</body>
+</html>
+
+
+<html>
+    <head>
+	<meta http-equiv=Content-Type content="text/html; charset=utf-8" /> 
+	<link href="css/style.css" type="text/css" rel="stylesheet" />
+	
+    </head>
+	
+    <body>
+ 
+<div id = "Image"> </div>
+
+    </body>
+</html>
+
+
+
+
+function insere() // fonction ok
+{
+	var retour_champ_image = parent.CadreB.document.getElementById("Parcourir").value;
+	//alert(retour_champ_image);
+	var image = parent.CadreC.document.createElement("img");
+	image.src = retour_champ_image;
+	var blabla = parent.CadreC.document.createAttribute("id");
+	blabla.nodeValue = "blabla";
+	parent.CadreC.document.getElementById("Image").appendChild(image);	
+}
+
+function supprime()
+{
+	var image = parent.CadreC.document.getElementsByTagName("img").firstChild;
+	parent.CadreC.document.getElementById("Image").removeChild(image);
+}
