@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Untitled Document</title>
+		<script type="text/javascript">
+ 
+ 
+			function afficher(monForm){
+				//La div qui va accueillir les images
+				var conteneur = document.getElementById('imgAInserer');
+ 
+				//Création d'une image vide
+				var monImg = document.createElement('img');
+ 
+				//On test la valeur de l'input
+				if(monForm["nomImg"].value == "a"){
+ 
+					//On définit la source de l'image
+					monImg.src = "mesImages/test.jpg";
+					//On ajoute l'image dans le conteneur
+					conteneur.appendChild(monImg);
+				}
+				else{
+					//On définit la source de l'image
+					monImg.src = "mesImages/default.jpg";
+					//On ajoute l'image dans le conteneur
+					conteneur.appendChild(monImg);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="imgAInserer"></div>
+		<form NAME="form2">
+<input NAME="nomImg" TYPE="text" VALUE="" maxlength="1"> Zone de texte d'entrée <BR>
+<input TYPE="button" NAME="bouton" VALUE="Afficher" onclick="afficher(this.form)"><BR>
+</FORM>
+	</body>
+</html>
