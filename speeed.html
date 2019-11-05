@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+<body>
+<script type="text/javascript"> let ms=seconde=minute=heure=0; let timer = null;</script>
+<div>
+<h1>Typing Speed</h1>
+   <p id="text">le texte</p>
+<input type="text" id="entree" name="typing" onfocus="speed();" onblur="stop();">
+<div id="compteur" style="font-size: 16px; color: red; font-weight: bold;"></div>
+<button onclick="aZero();">Redemarrer!</button>
+</div>
+<script type="text/javascript">
+function speed(){
+timer = setInterval(function() {
+seconde++;
+if(seconde==60) {
+minute++;
+seconde = 0;
+}
+if(minute==60) {
+heure++;
+minute = 0;
+}
+document.getElementById("compteur").innerHTML=((heure<10)?'0'+heure:heure)+":"+((minute<10)?'0'+minute:minute)+":"+((seconde<10)?'0'+seconde:seconde);
+var text = document.getElementById("text").innerHTML;
+var input = document.getElementById("entree").value;
+console.log(input);
+console.log(text);
+if (text==input) {
+
+stop();
+document.getElementById("entree").style.pointerEvents = "none";
+}
+}
+, 1000);
+  }
+  function stop() {
+  clearInterval(timer);
+  }
+  function aZero() {
+  clearInterval(timer);
+  seconde=minute=heure=0;
+  document.getElementById("compteur").innerHTML=((heure<10)?'0'+heure:heure)+":"+((minute<10)?'0'+minute:minute)+":"+((seconde<10)?'0'+seconde:seconde);
+  document.getElementById("entree").value="";
+ 
+  }
+
+</script>
+</body>
+</html>

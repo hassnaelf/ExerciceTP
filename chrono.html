@@ -1,0 +1,132 @@
+<!DOCTYPE Html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>chrono time</title>
+		<style >
+		#contener{
+			height: 550px;
+      	width: 1000px;
+      	background: #DCDCDC;
+      	margin: auto;
+		}
+
+      .chronometre{
+        margin: auto;
+        width: 300px;
+        text-align: center;}
+
+      .tim{
+      	margin: auto;
+      	width: 300px;
+      	border: 1px solid black;
+      	padding:5px 0;
+      	text-align: center;
+      	font-size: 1.5em;
+      	font-family: digital;
+      	margin-bottom: 10px;
+      }
+     
+      button{
+        background: orange;
+        color: #fff;
+        width: 70px;
+        border-radius: 5px;
+        line-height: 1.5em;
+        border: none
+      }
+      #bordure{
+      	margin:auto;
+      	text-align: center;
+      	font-size: 1.9em;
+      	font-family: digital;
+      	color: white;
+      	background: black;
+      	height: 100px;
+      	width: 1000px;
+
+      }
+      #text{
+      	margin-top: 1%;
+      }
+     
+
+	</style>
+</head>
+<body>
+<div id="contener">
+	<div  id="bordure">Typing speed</div>
+	<center><h4 id="text">calculer le nombre des instructions dans ce text area</h4></center>
+	<center><h3>s'il vous plait recopier le text en haut</h3></center>
+<center><textarea id="entree" name="typing" onfocus="speed();" onblur="stop();" placeholder="entry text" cols="80" rows="15" type="text" > </textarea></center>
+	<div class="chronometre">
+  <div class="tim">
+  	<span >0 h</span> :
+  	<span >0 min</span> :
+  	<span >0 s</span> :
+  	<span >0 ms</span>
+  	</div>
+  	
+  <button onclick="aZero();"> redemarer</button>
+
+  </div>
+</div>
+
+
+</body>
+<script type="text/javascript">
+	 var t;
+  var ms=0,s=0,mn=0,h=0;
+   var sp = document.getElementsByTagName("span");
+function speed(){
+timer = setInterval(update_chrono,1000);}
+
+
+	  function update_chrono(){
+    ms+=1;
+   
+       if(ms==10){
+        ms=1;
+        s+=1;
+       }
+       
+       if(s==60){
+        s=0;
+        mn+=1;
+       }
+       if(mn==60){
+        mn=0;
+        h+=1;
+       }
+       
+       sp[0].innerHTML=h+" h";
+       sp[1].innerHTML=mn+" min";
+       sp[2].innerHTML=s+" s";
+       sp[3].innerHTML=ms+" ms";
+
+       var text = document.getElementById("text").innerHTML;
+var input = document.getElementById("entree").value;
+console.log(input);
+console.log(text);
+if (text==input) {
+
+stop();
+document.getElementById("entree").style.pointerEvents = "none";
+}
+}
+
+  function stop() {
+  clearInterval(timer);
+  }
+  function aZero() {
+  clearInterval(timer);
+   ms=0,s=0,mn=0,h=0;
+    sp[0].innerHTML=h+" h";
+    sp[1].innerHTML=mn+" min";
+    sp[2].innerHTML=s+" s";
+    sp[3].innerHTML=ms+" ms";
+  }
+
+	</script>
+</html> 
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> exercice7</title>
+	<script type="text/javascript" >
+		function membre(id,name,grade){
+this.id=id;
+this.name=name;
+this.grade=grade;
+this.toString=function(){
+
+	return "id:"+this.id+"  nom:"+this.name+"  grade:"+this.grade;
+}}
+function team(){
+	this.me = new Array();
+	this.addmembre=function(m){
+		this.me.push(m);}
+    	this.toString =function(){
+		return this.me;
+		}}
+var a=new team();
+var b=new membre(2,'hasna','A');
+a.addmembre(b);
+var c=new membre(3,'salma','B');
+a.addmembre(c);
+var d=new membre(4,'marwa','C');
+a.addmembre(d);
+document.write(a.toString());
+	</script>
+</head>
+<body>
+</body>
+</html>

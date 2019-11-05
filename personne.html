@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script>
+	class Personne{
+		constructor(nom,nb_person,salaire,sex)
+		{
+			this.nom=nom;
+			this.nb_person=nb_person;
+			this.salaire=salaire;
+			this.sex=sex;
+
+		}
+		calculerS(bonus) 
+		{
+			 const assurance=this.salaire*0.07;
+			const RPC=this.salaire*0.05;
+			let impots=this.salaire*0.18;
+			if(this.sex==="femme")
+			{
+				if(this.nb_person==4)
+impots=impots-impots*0.04;
+else if(this.nb_person==3)
+impots=impots-impots*0.03;
+else
+impots=impots-impots*0.02;
+			}
+			else
+			{
+				if(this.nb_person==4)
+impots=impots-impots*0.02;
+else if(this.nb_person==3)
+impots=impots-impots*0.01;
+
+			}
+			this.salaire=(this.salaire+bonus)-(assurance+RPC+impots);
+			return this.salaire;
+			
+		}
+	}
+	
+	
+	var p1=new Personne('hassna',4,4000,'femme');
+	var p2=new Personne('lamia',3,8000,'femme');
+	document.write(p1.calculerS(100));
+	document.write(p1.calculerS(150));
+</script>
+</body>
+</html>

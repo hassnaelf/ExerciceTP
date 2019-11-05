@@ -1,0 +1,29 @@
+<html >
+<head>
+	<title></title>
+</head>
+<body>
+<div id="conteneur">
+	<div>boite1</div>
+	<div>boite2</div>
+	<div>boite3</div>
+	<div>boite3</div>
+</div>
+</body>
+<script type="text/javascript">
+	var  tab=document.querySelectorAll("#conteneur div")
+	function init(e){
+		
+		for(var i=0;i<tab.length;i++)
+		{
+			var tar=e.target;
+			if(tar==tab[i])
+				alert(tab[i].nodeName+' num:'+(i+1));
+			
+		}
+	}
+	for(var i=0;i<tab.length;i++){
+		tab[i].addEventListener("click",init);
+    }	
+</script>
+</html>

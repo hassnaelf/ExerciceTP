@@ -1,0 +1,59 @@
+<html>
+<title></title>
+<head>
+	<style type="text/css">
+		#horloge
+		{
+			font-size: 40px;
+			  text-align: center;
+			color:#4682B4;
+		border: solid  grey 1px;
+		margin-left: 600px;
+		padding:-50px 0;
+
+
+		}
+	</style>
+
+<script type="text/javascript">
+	hr=document.querySelector("heur");
+	mn=document.querySelector("minut");
+    sc=document.querySelector("second");
+	pnt1=document.querySelector("deuxponit1");
+	pnt2=document.querySelector("deuxponit2");
+
+function afficheHeure()  {
+	date = new Date();
+	Sdate = separer(date.getHours())+":"+ separer(date.getMinutes()) + ":" + separer(date.getSeconds());
+	return Sdate;}
+	function separer(arg)
+{
+	if(arg>9)
+		return "" + arg;
+	return "0" + arg;
+
+}
+function changeHeure(e) 
+{
+var a=document.querySelector("body #horloge");
+
+a.innerHTML = afficheHeure() 
+
+setTimeout("changeHeure() ",1000);
+}
+
+window.addEventListener("load",changeHeure);
+
+
+</script>
+</head>
+<body >
+<SPAN  id="horloge" >
+	<span id="heur"></span>
+	<span id="deuxponit1"></span>
+	<span id="minut"></span>
+	<span id="deuxponit2"></span>
+	<span id="second"></span>
+</SPAN> 
+</body>
+</html>
